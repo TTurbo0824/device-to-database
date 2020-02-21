@@ -61,7 +61,7 @@ Getting a max temperature in the root cellar by year
 
 <b>Answer:</b> Outside
 
-<h2>Write two queries that use data from your sensor.</h2>
+<h2>3. Write two queries that use data from your sensor.</h2>
 
 <h4>3.1 Getting the date when soil moisture data was the highest</h4>
 
