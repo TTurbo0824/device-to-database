@@ -56,3 +56,13 @@ Getting a max temperature in the root cellar by year
 ![screenshot challenge](img/c_challenge_result.png)
 
 <h2>Write two queries that use data from your sensor.</h2>
+
+
+	SELECT strftime('%Y-%m-%d', recorded_at) as date, p.name AS person, device, measurement, round(avg(reading), 2) as avg_temperature
+      FROM sensor_data s, person p, device d
+      WHERE s.device = d.name
+	AND measurement = 'temperature'
+	AND d.person_id = p.id
+    AND p.name = 'KJ'
+    AND recorded_at BETWEEN datetime('2020-02-19 00:00', 'utc') AND datetime('2020-02-21 12:00', 'utc')
+    GROUP BY date;
