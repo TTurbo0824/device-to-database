@@ -57,12 +57,26 @@ Getting a max temperature in the root cellar by year
 
 <h2>Write two queries that use data from your sensor.</h2>
 
+<h3>3.1 Getting the date when soil moisture data was the highest</h3> 
+
+	SELECT date(recorded_at, 'localtime') as date, strftime('%H:%M:%S', recorded_at, 'localtime') as time, p.name AS person, device, measurement, max(reading)
+      FROM sensor_data s, person p, device d
+      WHERE s.device = d.name
+      AND measurement = 'soil_moisture'
+      AND d.person_id = p.id
+      AND p.name = 'KJ';
+
+![screenshot 3.1](img/3_1_result.png)
+
+<h3>3.2 Getting the average temperature by day for the time period from February 19 to February 21</h3>
 
 	SELECT strftime('%Y-%m-%d', recorded_at) as date, p.name AS person, device, measurement, round(avg(reading), 2) as avg_temperature
       FROM sensor_data s, person p, device d
       WHERE s.device = d.name
-	AND measurement = 'temperature'
-	AND d.person_id = p.id
-    AND p.name = 'KJ'
-    AND recorded_at BETWEEN datetime('2020-02-19 00:00', 'utc') AND datetime('2020-02-21 12:00', 'utc')
-    GROUP BY date;
+      AND measurement = 'temperature'
+      AND d.person_id = p.id
+      AND p.name = 'KJ'
+      AND recorded_at BETWEEN datetime('2020-02-19 00:00', 'utc') AND datetime('2020-02-21 12:00', 'utc')
+      GROUP BY date;
+
+![screenshot 3.2](img/3_2_result.png)
