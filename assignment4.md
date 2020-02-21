@@ -11,6 +11,8 @@
 
 ![screenshot a](img/a_result.png)
 
+<b>Answer:</b> 2020-01-20
+
 <h3>b. Show the min and max temperature in the root cellar by year</h3>
 
 Getting a min temperature in the root cellar by year
@@ -45,6 +47,8 @@ Getting a max temperature in the root cellar by year
 
 ![screenshot c](img/c_result.png)
 
+<b>Answer:</b> -7.42
+
 <h3>Challenge: Which sensor recorded the lowest temperature 2018 and when? Hint: you need a subquery.</h3>
 
 	SELECT date(recorded_at) as date, strftime('%Y', recorded_at) as year, device, min(reading)	
@@ -55,9 +59,11 @@ Getting a max temperature in the root cellar by year
 
 ![screenshot challenge](img/c_challenge_result.png)
 
+<b>Answer:</b> Outside
+
 <h2>Write two queries that use data from your sensor.</h2>
 
-<h3>3.1 Getting the date when soil moisture data was the highest</h3> 
+3.1 Getting the date when soil moisture data was the highest
 
 	SELECT date(recorded_at, 'localtime') as date, strftime('%H:%M:%S', recorded_at, 'localtime') as time, p.name AS person, device, measurement, max(reading)
       FROM sensor_data s, person p, device d
@@ -68,7 +74,7 @@ Getting a max temperature in the root cellar by year
 
 ![screenshot 3.1](img/3_1_result.png)
 
-<h3>3.2 Getting the average temperature by day for the time period from February 19 to February 21</h3>
+3.2 Getting the average temperature by day for the time period from February 19 to February 21
 
 	SELECT strftime('%Y-%m-%d', recorded_at) as date, p.name AS person, device, measurement, round(avg(reading), 2) as avg_temperature
       FROM sensor_data s, person p, device d
