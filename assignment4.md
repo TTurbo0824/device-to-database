@@ -4,7 +4,7 @@
 
 <h3>a. When did the outside sensor break and stop sending data?</h3>
 
-	SELECT strftime('%Y-%m-%d', recorded_at) as day, device, recorded_at
+	SELECT strftime('%Y-%m-%d', recorded_at) as day, device, max(recorded_at)
       FROM sensor_data
       WHERE measurement = 'temperature' 
       AND device = 'outside';
