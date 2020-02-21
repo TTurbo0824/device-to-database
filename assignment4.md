@@ -53,6 +53,6 @@ Getting a max temperature in the root cellar by year
       AND recorded_at BETWEEN '2018-01-01' and '2018-12-31'
       GROUP BY year;
 
-![screenshot 3](img/3_result.png)
+![screenshot challenge](img/c_challenge_result.png)
 
 <h2>Write two queries that use data from your sensor.</h2>
