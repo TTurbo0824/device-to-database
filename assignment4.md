@@ -61,7 +61,7 @@ Getting a max temperature in the root cellar by year
 
 <b>Answer:</b> Outside
 
-<h2>Write two queries that use data from your sensor.</h2>
+<h2>3. Write two queries that use data from your sensor.</h2>
 
 <h4>3.1 Getting the date when soil moisture data was the highest</h4>
 
@@ -74,7 +74,7 @@ Getting a max temperature in the root cellar by year
 
 ![screenshot 3.1](img/3_1_result.png)
 
-<b>Answer:</b> 139
+<b>Answer:</b> 2020-02-16
 
 <h4>3.2 Getting the average temperature by day for the time period from February 19 to February 21</h4>
 
