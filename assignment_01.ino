@@ -20,7 +20,7 @@ String pressureTopic = "itp/" + DEVICE_ID + "/pressure";
 String illuminanceTopic = "itp/" + DEVICE_ID + "/illuminance";
 String uvaTopic = "itp/" + DEVICE_ID + "/uva";
 String uvbTopic = "itp/" + DEVICE_ID + "/uvb";
-String soilTopic = "itp/" + DEVICE_ID + "/soil_moisture";
+String soilTopic = "itp/" + DEVICE_ID + "/soil";
 
 // Publish every 10 seconds for the workshop. Real world apps need this data every 5 or 10 minutes.
 unsigned long publishInterval = 1800 * 1000; //setting 30 minutes interval
