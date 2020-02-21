@@ -45,8 +45,7 @@ Getting a max temperature in the root cellar by year
 
 ![screenshot c](img/c_result.png)
 
-<h2>3. Which sensor recorded the lowest temperature 2018 and when? Hint: you need a subquery.</h2>
-Write two queries that use data from your sensor.
+<h3>Challenge: Which sensor recorded the lowest temperature 2018 and when? Hint: you need a subquery.</h3>
 
 	SELECT date(recorded_at) as date, strftime('%Y', recorded_at) as year, device, min(reading)	
       FROM sensor_data 
@@ -55,3 +54,5 @@ Write two queries that use data from your sensor.
       GROUP BY year;
 
 ![screenshot 3](img/3_result.png)
+
+<h2>Write two queries that use data from your sensor.</h2>
