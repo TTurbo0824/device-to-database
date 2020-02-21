@@ -35,7 +35,7 @@ Getting a max temperature in the root cellar by year
 
 ![screenshot b max](img/b_max_result.png)
 
-<h3>What was the lowest temperature recorded 2018?</h3>
+<h3>c. What was the lowest temperature recorded 2018?</h3>
 
 	SELECT date(recorded_at) as date, strftime('%Y', recorded_at) as year, min(reading)	
       FROM sensor_data 
