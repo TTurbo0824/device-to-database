@@ -51,12 +51,25 @@ Getting a max temperature in the root cellar by year
 
 <h3>Challenge: Which sensor recorded the lowest temperature 2018 and when? Hint: you need a subquery.</h3>
 
-	SELECT date(recorded_at) as date, strftime('%Y', recorded_at) as year, device, min(reading)	
-      FROM sensor_data 
+	SELECT min(reading) 
+      FROM sensor_data
       WHERE measurement = 'temperature'
-      AND recorded_at BETWEEN '2018-01-01' and '2018-12-31'
-      GROUP BY year;
+      AND recorded_at BETWEEN '2018-01-01' and '2018-12-31';
 
+Getting the min value first
+
+	SELECT * 
+      FROM sensor_data
+      WHERE measurement = 'temperature'
+      AND reading = (
+        SELECT min(reading) 
+          FROM sensor_data
+          WHERE measurement = 'temperature'
+          AND recorded_at BETWEEN '2018-01-01' and '2018-12-31'
+      );
+  
+  Getting all the dates, which recorded -7.42
+  
 ![screenshot challenge](img/c_challenge_result.png)
 
 <b>Answer:</b> Outside
