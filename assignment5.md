@@ -9,7 +9,7 @@
 ![screenshot sensor stop](img/5_1_result.png)
 </br>
 </br>
-Answer: 2020-01-02
+Answer: 2020-01-20
 <h4>b. What was the lowest temperature recorded in 2018? Which sensor recorded this data?</h4>
 First, find what is the minimum value.<br/><br/>
     
