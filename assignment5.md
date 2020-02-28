@@ -4,11 +4,12 @@
 
 <h4>a. When did the outside sensor break and stop sending data?</h4>
 
-
     SELECT location, last(value) from /.*/ where location = 'outside';
 
 ![screenshot sensor stop](img/5_1_result.png)
-
+</br>
+</br>
+Answer: 2020-01-02
 <h4>b. What was the lowest temperature recorded in 2018? Which sensor recorded this data?</h4>
 First, find what is the minimum value.<br/><br/>
     
@@ -49,3 +50,20 @@ Test with 2019 data if the subquery was right.<br/>
 
 <h4>c. Explain the differences between the InfluxDB and TimescaleDB and query results.</h4></br>
 I don’t quite understand why they gave me different results but one thing I realized is that the time frames offered by those two databases are different. Even if I set the same time period, between '2018-10-01' and '2018-12-31',  the InfluxDB, for example, starts counting from 9/27/2018 unlike the TimescaleDB, which starts counting from 10/1/2017.
+
+
+<h3>Write two queries that use data from your sensor data from InfluxDB.</h3>
+
+<h4>Getting the values of average temeprature for 4 days.</h4>
+
+	SELECT mean(value) from temperature where device = 'device_11' and time > now() - 3d group by time(1d);
+	
+![screenshot sensor 1](img/5_4_1_result.png)
+
+<h4>Getting the illuminance values for 7 days and grouped them by 6 hours, reflecting the time of the date and its relevance to illuminance.</h4>
+	
+	SELECT min(value), max(value), mean(value) from illuminance where device = 'device_11' and time > now() - 6d group by time(6h)
+
+
+
+![screenshot sensor 2](img/5_4_2_result.png)
