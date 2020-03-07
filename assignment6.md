@@ -62,12 +62,12 @@ Comparing temperature
     SELECT mean(value) FROM temperature WHERE device = 'device_22' AND time > '2020-03-05'- 3d AND time < '2020-03-05' GROUP BY time(1h);
 
 When I compared the temperature values there are no visible differences between the values sent by devices 11 and 22. I assumed other sensors are working okay.
-<<<<<<< HEAD
 <br>
 
 <h2>Node-RED</h2>
+Linked to exported version of the flow: https://github.com/TTurbo0824/device-to-database/blob/master/flows.json
 
-I desingned the flow that sends out the text message and emai when the soil moisture are lower than 125%.
+I designed the flow that sends out the text/email when the soil moisture values are lower than 125%.
 
 <b>Test flow using injects. I first set the value for alert to 120%</b>
 <br>
@@ -79,7 +79,7 @@ Flow
 
 Email
 
-<img src="img/node_t_email.png" width="700"/>
+<img src="img/node_t_email.png" width="750"/>
 
 MQTT data
 
@@ -93,15 +93,4 @@ Flow
 
 Email
 
-<img src="img/node_email.png" width="700"/>
-=======
-
-
-
-
-
-
-<h2>Node-RED</h2>
-
->>>>>>> fd264fb2040d52fa1491b41045d2735280a2da68
-
+<img src="img/node_email.png" width="750"/>
