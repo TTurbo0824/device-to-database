@@ -93,4 +93,8 @@ Flow
 
 Email
 
+<<<<<<< HEAD
 <img src="img/node_email.png" width="750"/>
+=======
+<img src="img/node_email.png" width="700"/>
+>>>>>>> 571906862dc87f84d6b40964fe84c3baafc54049
