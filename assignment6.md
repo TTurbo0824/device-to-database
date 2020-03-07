@@ -65,7 +65,7 @@ When I compared the temperature values there are no visible differences between 
 <br>
 
 <h2>Node-RED</h2>
-Linked to exported version of the flow: https://github.com/TTurbo0824/device-to-database/blob/master/flows.json
+Link to exported version of the flow: https://github.com/TTurbo0824/device-to-database/blob/master/flows.json
 
 I designed the flow that sends out the text/email when the soil moisture values are lower than 125%.
 
@@ -93,8 +93,4 @@ Flow
 
 Email
 
-<<<<<<< HEAD
 <img src="img/node_email.png" width="750"/>
-=======
-<img src="img/node_email.png" width="700"/>
->>>>>>> 571906862dc87f84d6b40964fe84c3baafc54049
