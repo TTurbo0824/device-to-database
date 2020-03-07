@@ -62,6 +62,7 @@ Comparing temperature
     SELECT mean(value) FROM temperature WHERE device = 'device_22' AND time > '2020-03-05'- 3d AND time < '2020-03-05' GROUP BY time(1h);
 
 When I compared the temperature values there are no visible differences between the values sent by devices 11 and 22. I assumed other sensors are working okay.
+<<<<<<< HEAD
 <br>
 
 <h2>Node-RED</h2>
@@ -93,4 +94,14 @@ Flow
 Email
 
 <img src="img/node_email.png" width="700"/>
+=======
+
+
+
+
+
+
+<h2>Node-RED</h2>
+
+>>>>>>> fd264fb2040d52fa1491b41045d2735280a2da68
 
