@@ -1,1 +1,129 @@
-[{"id":"8279a2f5.f2c97","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"272d4ecb.66f242","type":"e-mail","z":"8279a2f5.f2c97","server":"smtp.gmail.com","port":"465","secure":true,"tls":true,"name":"kyungjooha13@gmail.com","dname":"","x":720,"y":260,"wires":[]},{"id":"1e6fa4f6.4332fb","type":"mqtt in","z":"8279a2f5.f2c97","name":"","topic":"itp/device_11/soil","qos":"0","datatype":"auto","broker":"21ad87ca.214908","x":140,"y":240,"wires":[["32b0afcd.239db"]]},{"id":"18957996.cfc906","type":"debug","z":"8279a2f5.f2c97","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","targetType":"msg","x":670,"y":160,"wires":[]},{"id":"32b0afcd.239db","type":"function","z":"8279a2f5.f2c97","name":"Low Soil Moisture Alert","func":"// put your phone number here\nconst phone = '12132576983';\nconst soil = Number(msg.payload);\nif (soil < 125) {\n\n    // get the device id and create a message\n    const device = msg.topic.split('/')[1];\n    const alertMessage = `Soil moisture ${soil}% for device '${device}' exceeds the low soil moisture limit of 125% please water the plant`\n\n    // publish to the sms topic to send a message\n    msg.topic = `sms/send/${phone}`;\n    msg.payload = alertMessage;\n    return msg;\n} else {\n    return null;\n}","outputs":1,"noerr":0,"x":410,"y":240,"wires":[["18957996.cfc906","272d4ecb.66f242"]]},{"id":"17648daf.52c282","type":"inject","z":"8279a2f5.f2c97","name":"","topic":"test/device_11/soil","payload":"130","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":340,"y":400,"wires":[["9e65c5c0.195db8"]]},{"id":"f4c7823e.b233e","type":"inject","z":"8279a2f5.f2c97","name":"","topic":"test/device_11/soil","payload":"109","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":340,"y":500,"wires":[["9e65c5c0.195db8"]]},{"id":"9e65c5c0.195db8","type":"mqtt out","z":"8279a2f5.f2c97","name":"","topic":"","qos":"","retain":"","broker":"21ad87ca.214908","x":610,"y":440,"wires":[]},{"id":"21ad87ca.214908","type":"mqtt-broker","z":"","name":"","broker":"itpdtd.com","port":"8883","tls":"","clientid":"","usetls":true,"compatmode":true,"keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthPayload":"","closeTopic":"","closeQos":"0","closePayload":"","willTopic":"","willQos":"0","willPayload":""}]
+[{
+    "id": "8279a2f5.f2c97",
+    "type": "tab",
+    "label": "Flow 1",
+    "disabled": false,
+    "info": ""
+}, {
+    "id": "272d4ecb.66f242",
+    "type": "e-mail",
+    "z": "8279a2f5.f2c97",
+    "server": "smtp.gmail.com",
+    "port": "465",
+    "secure": true,
+    "tls": true,
+    "name": "kyungjooha13@gmail.com",
+    "dname": "",
+    "x": 720,
+    "y": 260,
+    "wires": []
+}, {
+    "id": "1e6fa4f6.4332fb",
+    "type": "mqtt in",
+    "z": "8279a2f5.f2c97",
+    "name": "",
+    "topic": "itp/device_11/soil",
+    "qos": "0",
+    "datatype": "auto",
+    "broker": "21ad87ca.214908",
+    "x": 140,
+    "y": 240,
+    "wires": [
+        ["32b0afcd.239db"]
+    ]
+}, {
+    "id": "18957996.cfc906",
+    "type": "debug",
+    "z": "8279a2f5.f2c97",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "x": 670,
+    "y": 160,
+    "wires": []
+}, {
+    "id": "32b0afcd.239db",
+    "type": "function",
+    "z": "8279a2f5.f2c97",
+    "name": "Low Soil Moisture Alert",
+    "func": "// put your phone number here\nconst phone = '12132576983';\nconst soil = Number(msg.payload);\nif (soil < 125) {\n\n    // get the device id and create a message\n    const device = msg.topic.split('/')[1];\n    const alertMessage = `Soil moisture ${soil}% for device '${device}' exceeds the low soil moisture limit of 125% please water the plant`\n\n    // publish to the sms topic to send a message\n    msg.topic = `sms/send/${phone}`;\n    msg.payload = alertMessage;\n    return msg;\n} else {\n    return null;\n}",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 410,
+    "y": 240,
+    "wires": [
+        ["18957996.cfc906", "272d4ecb.66f242"]
+    ]
+}, {
+    "id": "17648daf.52c282",
+    "type": "inject",
+    "z": "8279a2f5.f2c97",
+    "name": "",
+    "topic": "test/device_11/soil",
+    "payload": "130",
+    "payloadType": "num",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "x": 340,
+    "y": 400,
+    "wires": [
+        ["9e65c5c0.195db8"]
+    ]
+}, {
+    "id": "f4c7823e.b233e",
+    "type": "inject",
+    "z": "8279a2f5.f2c97",
+    "name": "",
+    "topic": "test/device_11/soil",
+    "payload": "109",
+    "payloadType": "num",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "x": 340,
+    "y": 500,
+    "wires": [
+        ["9e65c5c0.195db8"]
+    ]
+}, {
+    "id": "9e65c5c0.195db8",
+    "type": "mqtt out",
+    "z": "8279a2f5.f2c97",
+    "name": "",
+    "topic": "",
+    "qos": "",
+    "retain": "",
+    "broker": "21ad87ca.214908",
+    "x": 610,
+    "y": 440,
+    "wires": []
+}, {
+    "id": "21ad87ca.214908",
+    "type": "mqtt-broker",
+    "z": "",
+    "name": "",
+    "broker": "itpdtd.com",
+    "port": "8883",
+    "tls": "",
+    "clientid": "",
+    "usetls": true,
+    "compatmode": true,
+    "keepalive": "60",
+    "cleansession": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthPayload": "",
+    "closeTopic": "",
+    "closeQos": "0",
+    "closePayload": "",
+    "willTopic": "",
+    "willQos": "0",
+    "willPayload": ""
+}]
