@@ -37,9 +37,11 @@ When I grouped data by 1 day, I realized that there are some missing values in t
 Calculating difference between max and min values using InfluxDB.
 
 Outside:
+
 <img src="img/w6_outside.png" width="700"/>
 
 Basement:
+
 <img src="img/w6_basement.png" width="700"/>
 
 <h3><b>ITP Database</b></h3>
