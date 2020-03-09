@@ -3,8 +3,8 @@
 
 Links to Grafana dashboard.<br>
 
-Farm database: https://grafana.itpdtd.com/d/IXswOulZz/assignment-06_kj?from=1583107200000&to=1583362800000 <br>
-ITP database: https://grafana.itpdtd.com/d/IXswOulZz/assignment-06_kj?from=1546318800000&to=1577854800000
+ITP database: https://grafana.itpdtd.com/d/IXswOulZz/assignment-06_kj?from=1583107200000&to=1583362800000 <br>
+Farm database: https://grafana.itpdtd.com/d/IXswOulZz/assignment-06_kj?from=1546318800000&to=1577854800000
 
 The above two links will take you to the same dashboard but I just couldn't figure out how to enable multiple time ranges for different panels in one dashboard.
 
@@ -34,6 +34,13 @@ When I grouped data by 1 day, I realized that there are some missing values in t
     # basement temperature
     SELECT mean(value) from temperature where location = 'basement' and time >= '2019-01-01' AND time <= '2019-12-31' group by time(1d) tz('America/New_York');
 
+Calculating difference between max and min values using InfluxDB.
+
+Outside:
+<img src="img/w6_outside.png" width="700"/>
+
+Basement:
+<img src="img/w6_basement.png" width="700"/>
 
 <h3><b>ITP Database</b></h3>
 
